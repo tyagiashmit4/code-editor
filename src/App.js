@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
-import CodeEditor from '../src/components/codeeditor/CodeEditor'
-import highlightWithPrism from './utils/highlightWithPrism';
-import './App.css';
+import CodeEditor from './components/codeeditor/CodeEditor';
+import './components/codeeditor/CodeEditor.css';
 
 const App = () => {
-  const [code, setCode] = useState('<textarea value={code} onChange={(event) => { setCode(event.target.value) }} />\n<SyntaxHighlighter code={code} />');
+  const [code, setCode] = useState(`import React from 'react';\nimport ReactDOM from 'react-dom';\n\nfunction App() {\n  return (\n    <h1>Hello world</h1>\n  );\n}\n\nReactDOM.render(<App />, document.getElementById('root'));\n`);
 
   return (
-    <div className="App">
-      <h1>Simple Code Editor</h1>
-      <CodeEditor
-        value={code}
-        onValueChange={setCode}
-        highlight={highlightWithPrism}
-        tabSize={4}
-        padding={10}
-        textareaId="code-editor"
-        textareaClassName="code-textarea"
-        preClassName="code-pre"
-      />
+    <div className="editor-wrapper">
+      <div className="editor-box">
+        <CodeEditor
+          code={code}
+          setCode={setCode}
+          padding={10}
+          style={{
+            fontFamily: '"Fira code", "Fira Mono", monospace',
+            fontSize: 16,
+          }}
+        />
+      </div>
     </div>
   );
 };
