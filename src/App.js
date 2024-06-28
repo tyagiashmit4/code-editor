@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import CodeEditor from '../src/components/codeeditor/CodeEditor'
+import highlightWithPrism from './utils/highlightWithPrism';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [code, setCode] = useState('<textarea value={code} onChange={(event) => { setCode(event.target.value) }} />\n<SyntaxHighlighter code={code} />');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Simple Code Editor</h1>
+      <CodeEditor
+        value={code}
+        onValueChange={setCode}
+        highlight={highlightWithPrism}
+        tabSize={4}
+        padding={10}
+        textareaId="code-editor"
+        textareaClassName="code-textarea"
+        preClassName="code-pre"
+      />
     </div>
   );
-}
+};
 
 export default App;
