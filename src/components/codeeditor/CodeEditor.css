@@ -1,11 +1,19 @@
 /* CodeEditor.css */
 
-.editor-wrapper {
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+  }
+  
+  .editor-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: #f5f5f5;
+    flex-direction: column;
   }
   
   .editor-box {
@@ -15,6 +23,7 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    box-sizing: border-box;
   }
   
   .code-editor-container {
@@ -24,6 +33,7 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     overflow: hidden;
+    height: 300px; /* Adjust this as necessary */
   }
   
   .code-editor-textarea {
@@ -56,5 +66,19 @@
     overflow-wrap: break-word;
     background: white;
     color: black;
+  }
+  
+  .heading {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .description {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 16px;
+    color: #555;
   }
   

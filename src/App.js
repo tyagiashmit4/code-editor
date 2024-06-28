@@ -7,6 +7,8 @@ const App = () => {
 
   return (
     <div className="editor-wrapper">
+       <div className="heading">react-simple-code-editor</div>
+       <div className="description">A simple no-frills code editor with syntax highlighting.</div>
       <div className="editor-box">
         <CodeEditor
           code={code}
